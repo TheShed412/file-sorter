@@ -2,11 +2,12 @@
 #define FILE_PROC
 
 using namespace std;
+#include <iostream>
+#include "Date.hpp"
 
-template <typename T> 
 class FileProcessor {
     public:
-        T processFile(fstream);
+        Date processFile(fstream);
 };
 
 #endif
