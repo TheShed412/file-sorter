@@ -2,6 +2,7 @@
 #define FILE_PROC
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -11,9 +12,10 @@ struct Date {
     string year;
 };
 
+template <typename T> 
 class FileProcessor {
     public:
-        Date getDate();
+        T processFile(fstream);
 };
 
 #endif
