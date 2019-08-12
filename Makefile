@@ -2,7 +2,7 @@ OBJ=build
 OUT=bin
 SRC=src
 CC=g++
-CFLAGS= -std=c++11 -g -c
+CFLAGS= -std=c++11 -g
 MKDIR=mkdir -p
 
 $(OBJ)/%.o: $(SRC)/%.cpp
@@ -11,7 +11,7 @@ $(OBJ)/%.o: $(SRC)/%.cpp
 mkouts:
 	$(MKDIR) build bin
 
-main: mkouts $(OBJ)/main.o
+main: $(OBJ)/main.o
 	$(CC) $(CFLAGS) -o $(OUT)/sorter $(SRC)/main.cpp
 
 clean:
