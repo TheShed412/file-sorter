@@ -1,14 +1,14 @@
 #include <iostream>
 
 #include "ExecCMD.hpp"
+
 using namespace std;
 
 string getInfo(const char* cmd);
 
 int main() {
-    string out = getInfo("mediainfo");
-
-    cout <<  out << endl;
+    
+    ExecCMD cmd("space seperated list");
 
     return 0;
 }

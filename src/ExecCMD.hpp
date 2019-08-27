@@ -9,6 +9,8 @@ using namespace std;
 class ExecCMD {
     public:
         vector<string> args;
+
+        ExecCMD();
         ExecCMD(vector<string> args);
         ExecCMD(string args);
         void SetArgs(vector<string> args);
@@ -16,6 +18,8 @@ class ExecCMD {
         void SetArgs(string args);
         void AddArgs(string args);
         string Exec();
+    private:
+        vector<string> GetVectorFromString(string strArgs);
 };
 
 #endif
