@@ -1,4 +1,6 @@
 #include <iostream>
+
+#include "ExecCMD.hpp"
 using namespace std;
 
 string getInfo(const char* cmd);
