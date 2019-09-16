@@ -3,6 +3,7 @@
 
 #include "ExecCMD.hpp"
 #include <map>
+#include <string>
 
 class MediaInfoCMD : public ExecCMD {
     
@@ -21,6 +22,7 @@ class MediaInfoCMD : public ExecCMD {
         MediaInfoCMD() : ExecCMD(){}
         MediaInfoCMD(vector<string> args) : ExecCMD(args){}
         MediaInfoCMD(string args) : ExecCMD(args){}
+        string Exec();
         map<string, string> GetGeneralInfo();
         map<string, string> GetVideoInfo();
         map<string, string> GetAudioInfo();
