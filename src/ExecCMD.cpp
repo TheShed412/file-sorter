@@ -1,6 +1,5 @@
 #include "ExecCMD.hpp"
 #include <sstream>
-#include <iostream>
 #include <iterator> 
 
 ExecCMD::ExecCMD(){}
