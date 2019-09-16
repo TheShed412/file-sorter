@@ -1,5 +1,6 @@
 #include "ExecCMD.hpp"
 #include <sstream>
+#include <iterator> 
 
 ExecCMD::ExecCMD(){}
 
@@ -25,6 +26,36 @@ void ExecCMD::SetArgs(string args){
 
 void ExecCMD::AddArgs(string args){
 
+}
+
+vector<string> ExecCMD::GetArgs() {
+    return vector<string>(args);
+}
+
+string ExecCMD::Exec() {
+    char buffer[128];
+    string cmd = GetStringFromVector(this->args);
+    std::string result = "";
+    FILE* pipe = popen(cmd.c_str(), "r");
+    if (!pipe) throw std::runtime_error("popen() failed!");
+    try {
+        while (fgets(buffer, sizeof buffer, pipe) != NULL) {
+            result += buffer;
+        }
+    } catch (...) {
+        pclose(pipe);
+        throw;
+    }
+    pclose(pipe);
+    return result;
+}
+
+string ExecCMD::GetStringFromVector(vector<string> args) {
+    std::ostringstream vts;
+    std::copy(args.begin(), args.end()-1, 
+        std::ostream_iterator<string>(vts, " "));
+
+    return vts.str();
 }
 
 vector<string> ExecCMD::GetVectorFromString(string strArgs){

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unistd.h>
 
 #include "ExecCMD.hpp"
 
@@ -10,6 +11,10 @@ int main() {
     
     ExecCMD cmd("space seperated list");
 
+    vector<string> args = cmd.GetArgs();
+
+    cout << "Num Args :: " << args.size() << endl;
+    
     return 0;
 }
 
