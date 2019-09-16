@@ -1,5 +1,6 @@
 #include "ExecCMD.hpp"
 #include <sstream>
+#include <iostream>
 #include <iterator> 
 
 ExecCMD::ExecCMD(){}
@@ -33,7 +34,7 @@ vector<string> ExecCMD::GetArgs() {
 }
 
 string ExecCMD::Exec() {
-    char buffer[128];
+    char buffer[128];//TODO: make this a configuration from compilation
     string cmd = GetStringFromVector(this->args);
     std::string result = "";
     FILE* pipe = popen(cmd.c_str(), "r");
@@ -52,7 +53,7 @@ string ExecCMD::Exec() {
 
 string ExecCMD::GetStringFromVector(vector<string> args) {
     std::ostringstream vts;
-    std::copy(args.begin(), args.end()-1, 
+    std::copy(args.begin(), args.end(), 
         std::ostream_iterator<string>(vts, " "));
 
     return vts.str();
