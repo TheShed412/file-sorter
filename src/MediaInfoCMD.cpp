@@ -5,21 +5,19 @@
 #include <locale>
 #include <functional>
 #include <algorithm>
+#include <map>
 
 string MediaInfoCMD::Exec() {
     string result = ExecCMD::Exec();
 
     vector<string> mediaBlocks = splitBlocks(result, "\n\n");
     //vector<string> mediaLines = splitBlocks(mediaBlocks, "\n");
+    map<string, vector<string>> typeMap = makeTypeMap(mediaBlocks);
     vector<string> clearedWhiteSpace = clearWhiteSpaceInVector(mediaBlocks);
 
-    cout << "::::::::::: BLOCKS ::::::::::::::" << endl;
     for(string str : clearedWhiteSpace) {
-        cout << "::::::::::: BLOCK ::::::::::::::" << endl;
         cout << str << endl;
-        cout << "::::::::::: BLOCK ::::::::::::::" << endl;
     }
-    cout << "::::::::::: BLOCKS ::::::::::::::" << endl;
 
     executed = true;
     return result;
@@ -49,6 +47,18 @@ string MediaInfoCMD::clearWhiteSpace(string str) {
     return localStr;
 }
 
+vector<string> MediaInfoCMD::clearWhiteSpace(vector<string> strs) {
+    vector<string> clearedWhiteSpace;
+
+    for(string str : strs) {
+        string noWhiteSpace = clearWhiteSpace(str);
+        cout << "WHITESPACE: " << noWhiteSpace << endl;
+        clearedWhiteSpace.push_back(noWhiteSpace);
+    }
+
+    return clearedWhiteSpace;
+}
+
 vector<string> MediaInfoCMD::splitBlocks(string stringBlocks, string delimeter) {
     vector<string> splittedString;
     int startIndex = 0;
@@ -65,4 +75,17 @@ vector<string> MediaInfoCMD::splitBlocks(string stringBlocks, string delimeter) 
         splittedString.push_back(val);
     }
     return splittedString;
+}
+
+map<string, vector<string>> MediaInfoCMD::makeTypeMap(vector<string> mediaBlocks) {
+    map<string, vector<string>> typeMap;
+
+    for(string block : mediaBlocks) {
+        vector<string> blockLines = splitBlocks(block, "\n");
+        string key = blockLines.front();
+        blockLines.erase(blockLines.begin());
+        typeMap[key] = clearWhiteSpace(blockLines);
+    }
+
+    return typeMap;
 }

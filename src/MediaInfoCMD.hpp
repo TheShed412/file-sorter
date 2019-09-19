@@ -16,6 +16,8 @@ class MediaInfoCMD : public ExecCMD {
     vector<string> splitBlocks(string stringBlocks, string delimeter);
     string clearWhiteSpace(string str);
     vector<string> clearWhiteSpaceInVector(vector<string> blocks);
+    map<string, vector<string>> makeTypeMap(vector<string> mediaBlocks);
+    vector<string> clearWhiteSpace(vector<string> str);
 
     /**
      * I'll want to make the parsing happen in the exec
