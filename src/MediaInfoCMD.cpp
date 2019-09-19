@@ -11,16 +11,29 @@ string MediaInfoCMD::Exec() {
     string result = ExecCMD::Exec();
 
     vector<string> mediaBlocks = splitBlocks(result, "\n\n");
-    //vector<string> mediaLines = splitBlocks(mediaBlocks, "\n");
     map<string, vector<string>> typeMap = makeTypeMap(mediaBlocks);
-    vector<string> clearedWhiteSpace = clearWhiteSpaceInVector(mediaBlocks);
-
-    for(string str : clearedWhiteSpace) {
-        cout << str << endl;
-    }
+    // typeMap is mapping type to a list of attributes
+    /**
+     * make each vector a map of attributes
+    */
+    general = makeAttributeMap(typeMap["General"]);
+    video = makeAttributeMap(typeMap["Video"]);
+    audio = makeAttributeMap(typeMap["Audio"]);
+    text = makeAttributeMap(typeMap["Text"]);
 
     executed = true;
     return result;
+}
+
+map<string, string> MediaInfoCMD::makeAttributeMap(vector<string> attributeVector) {
+    map<string, string> attributeMap;
+
+    for(string attributeString : attributeVector) {
+        vector<string> attributes = splitBlocks(attributeString, ":");
+        attributeMap[attributes.at(0)] = attributes.at(1);
+    }
+
+    return attributeMap;
 }
 
 vector<string> MediaInfoCMD::clearWhiteSpaceInVector(vector<string> blocks){
@@ -52,7 +65,6 @@ vector<string> MediaInfoCMD::clearWhiteSpace(vector<string> strs) {
 
     for(string str : strs) {
         string noWhiteSpace = clearWhiteSpace(str);
-        cout << "WHITESPACE: " << noWhiteSpace << endl;
         clearedWhiteSpace.push_back(noWhiteSpace);
     }
 
@@ -88,4 +100,20 @@ map<string, vector<string>> MediaInfoCMD::makeTypeMap(vector<string> mediaBlocks
     }
 
     return typeMap;
+}
+
+map<string, string> MediaInfoCMD::GetGeneralInfo() {
+    return general;
+}
+
+map<string, string> MediaInfoCMD::GetVideoInfo(){
+    return video;
+}
+
+map<string, string> MediaInfoCMD::GetAudioInfo(){
+    return audio;
+}
+
+map<string, string> MediaInfoCMD::GetTextInfo(){
+    return text;
 }
