@@ -9,4 +9,5 @@ addons:
     packages:
     - g++-7
 script:
+  - make mkouts
   - make main
