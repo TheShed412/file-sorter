@@ -14,6 +14,8 @@ class MediaInfoCMD : public ExecCMD {
     map<string, string> audio;
     map<string, string> text;
     vector<string> splitBlocks(string stringBlocks, string delimeter);
+    string clearWhiteSpace(string str);
+    vector<string> clearWhiteSpaceInVector(vector<string> blocks);
 
     /**
      * I'll want to make the parsing happen in the exec
