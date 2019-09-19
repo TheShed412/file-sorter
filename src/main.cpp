@@ -13,11 +13,13 @@ int main() {
 
     string result = cmd.Exec();
     
-    map<string, string> videoAtts = cmd.GetVideoInfo();
+    map<string, string> videoAtts = cmd.GetGeneralInfo();
 
     for(map<string,string>::iterator it = videoAtts.begin(); it != videoAtts.end(); ++it) {
-        cout << it->second << "\n";
+        cout << it->first << ": " << it->second << "\n";
     }
+
+    //cout << result << endl;
 
     return 0;
 }
