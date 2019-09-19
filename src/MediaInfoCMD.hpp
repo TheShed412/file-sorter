@@ -13,6 +13,7 @@ class MediaInfoCMD : public ExecCMD {
     map<string, string> video;
     map<string, string> audio;
     map<string, string> text;
+    vector<string> splitBlocks(string stringBlocks, string delimeter);
 
     /**
      * I'll want to make the parsing happen in the exec
