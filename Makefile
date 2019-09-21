@@ -12,7 +12,7 @@ mkouts:
 	$(MKDIR) build bin
 
 main: $(OBJ)/main.o $(OBJ)/ExecCMD.o
-	$(CC) $(CFLAGS) -o $(OUT)/sorter $(SRC)/main.cpp $(SRC)/ExecCMD.cpp $(SRC)/MediaInfoCMD.cpp
+	$(CC) $(CFLAGS) -o $(OUT)/sorter $(SRC)/main.cpp $(SRC)/ExecCMD.cpp $(SRC)/MediaInfoCMD.cpp $(SRC)/MediaDate.cpp
 
 clean:
 	rm $(OUT)/* $(OBJ)/*

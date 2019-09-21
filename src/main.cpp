@@ -2,6 +2,7 @@
 #include <unistd.h>
 
 #include "MediaInfoCMD.hpp"
+#include "MediaDate.hpp"
 
 using namespace std;
 
