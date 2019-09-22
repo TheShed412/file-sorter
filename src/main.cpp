@@ -17,6 +17,10 @@ int main() {
 
     MediaDate date(videoAtts.at(dateKey));
 
+    cout << date.GetDateString() << endl;
+    cout << "day: " << date.GetDay() << " month: " << date.GetMonth() << " year: " << date.GetYear() << endl;
+    cout << "hour: " << date.GetHour() << " min: " << date.GetMinutes() << " sec: " << date.GetSeconds() << endl;
+
     // for(map<string,string>::iterator it = videoAtts.begin(); it != videoAtts.end(); ++it) {
     //     cout << it->first << ": " << it->second << "\n";
     // }
