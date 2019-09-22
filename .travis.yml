@@ -6,9 +6,9 @@ addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
-    - catch
     packages:
     - g++-7
+    - catch
 script:
   - make mkouts
   - make main
