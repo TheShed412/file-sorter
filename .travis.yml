@@ -11,3 +11,5 @@ addons:
 script:
   - make mkouts
   - make main
+  - make test
+  - make run_test
