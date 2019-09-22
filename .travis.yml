@@ -1,6 +1,4 @@
-sudo: true
-before_install:
-  - sudo apt-get install catch
+sudo: false
 language: cpp
 compiler:
   - gcc
