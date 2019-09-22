@@ -17,6 +17,13 @@ class MediaDate {
     public:
         MediaDate();
         MediaDate(string dateString);
+        int GetSeconds();
+        int GetMinutes();
+        int GetDay();
+        int GetMonth();
+        int GetYear();
+        int GetHour();
+        string GetDateString();
 };
 
 #endif
