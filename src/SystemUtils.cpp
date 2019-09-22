@@ -13,6 +13,6 @@ string getenvUtil(string envVarName) {
         string envStr(envVarArr);
         return envStr;
     } else {
-        return NULL;
+        return "NOVAR";
     }
 }
