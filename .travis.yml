@@ -1,10 +1,7 @@
-sudo: true
+sudo: false
 language: cpp
 compiler:
   - gcc
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y catch
 addons:
   apt:
     update: true
@@ -12,8 +9,9 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-7
+    - catch
 script:
   - make mkouts
   - make main
   - make test
-  - make run_test
+  - make run_tests
