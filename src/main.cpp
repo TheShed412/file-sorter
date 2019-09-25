@@ -3,6 +3,7 @@
 
 #include "MediaInfoCMD.hpp"
 #include "MediaDate.hpp"
+#include "SystemUtils.hpp"
 
 using namespace std;
 
@@ -16,10 +17,8 @@ int main() {
     map<string, string> videoAtts = cmd.GetGeneralInfo();
 
     MediaDate date(videoAtts.at(dateKey));
-
-    cout << date.GetDateString() << endl;
-    cout << "day: " << date.GetDay() << " month: " << date.GetMonth() << " year: " << date.GetYear() << endl;
-    cout << "hour: " << date.GetHour() << " min: " << date.GetMinutes() << " sec: " << date.GetSeconds() << endl;
+    string envStr = getenvUtil("PATH");
+    cout << envStr << endl;
 
     // for(map<string,string>::iterator it = videoAtts.begin(); it != videoAtts.end(); ++it) {
     //     cout << it->first << ": " << it->second << "\n";
