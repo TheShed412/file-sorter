@@ -10,11 +10,12 @@
 
 
 using namespace std;
+using namespace spdlog;
 
 string getInfo(const char* cmd);
 
 int main() {
-    spdlog::info("ayy {}", "lmao");
+    info("ayy {}", "lmao");
     string dateKey = "Encoded date";
     MediaInfoCMD cmd("mediainfo /home/tyler/Downloads/Project1_2019_06_22_1.mp4");
 
@@ -25,11 +26,11 @@ int main() {
     string envStr = getenvUtil("SORTER_PATH");
     bool madeDir = mkdirUtil(envStr + "/test");
     vector<string> entries = lsUtil(envStr);
-    cout << envStr << endl;
-    cout << madeDir << endl;
+    info("Environment: {}", envStr);
+    info("Dir made: {}", envStr);
 
     for(string ent : entries) {
-        cout << ent << endl;
+        info("File: {}", ent);
     }
 
     // for(map<string,string>::iterator it = videoAtts.begin(); it != videoAtts.end(); ++it) {

@@ -17,7 +17,6 @@ vector<string> lsUtil(string dirName) {
         return dirents;
     }
     while ((entry = readdir(dir)) != NULL) {
-        cout << entry->d_name << endl;
         dirents.push_back(string(entry->d_name));
     }
 
