@@ -5,6 +5,7 @@
 #include "MediaInfoCMD.hpp"
 #include "MediaDate.hpp"
 #include "SystemUtils.hpp"
+#include "spdlog/spdlog.h"
 
 
 
@@ -13,8 +14,7 @@ using namespace std;
 string getInfo(const char* cmd);
 
 int main() {
-    freopen("/home/tyler/Documents/projects/file_sorter/tmp/output.txt", "w", stdout);
-    freopen("/home/tyler/Documents/projects/file_sorter/tmp/error.txt", "w", stderr);
+    spdlog::info("ayy {}", "lmao");
     string dateKey = "Encoded date";
     MediaInfoCMD cmd("mediainfo /home/tyler/Downloads/Project1_2019_06_22_1.mp4");
 
