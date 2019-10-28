@@ -1,8 +1,18 @@
 #include "SystemUtils.hpp"
 #include <cstdlib>
+#include <iostream>
+#include <bits/stdc++.h>
+#include <sys/stat.h> 
+#include <sys/types.h> 
 
 bool mkdirUtil(string dirName) {
-    return false;
+    const char* dirNameC = dirName.c_str();
+
+    if (mkdir(dirNameC, 0777) == -1) {
+        return false;
+    }
+
+    return true;
 }
 
 string getenvUtil(string envVarName) {

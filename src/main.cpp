@@ -17,8 +17,10 @@ int main() {
     map<string, string> videoAtts = cmd.GetGeneralInfo();
 
     MediaDate date(videoAtts.at(dateKey));
-    string envStr = getenvUtil("PATH");
+    string envStr = getenvUtil("SORTER_PATH");
+    bool madeDir = mkdirUtil(envStr + "/test");
     cout << envStr << endl;
+    cout << madeDir << endl;
 
     // for(map<string,string>::iterator it = videoAtts.begin(); it != videoAtts.end(); ++it) {
     //     cout << it->first << ": " << it->second << "\n";
