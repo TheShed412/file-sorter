@@ -1,6 +1,7 @@
 OBJ=build
 OUT=bin
 SRC=src
+SYS=$(SRC)/system
 TEST=$(SRC)/test
 CC=g++
 CFLAGS= -std=c++11 -g
@@ -26,3 +27,7 @@ clean:
 
 run_tests:
 	./$(OUT)/tests
+
+system:
+	cp $(SYS)/sorter.service /etc/systemd/system/sorter.service
+	cp $(SYS)/sorter.timer /etc/systemd/system/sorter.timer

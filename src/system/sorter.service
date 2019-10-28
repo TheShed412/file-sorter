@@ -1,0 +1,8 @@
+[Unit]
+Description=Media Sorter Service
+
+[Service]
+Type=simple
+ExecStart=/home/tyler/Documents/projects/file_sorter/bin/sorter
+Restart=on-failure
+RestartSec=10
