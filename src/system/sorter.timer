@@ -1,0 +1,9 @@
+[Unit]
+Description=Media Sorter Timer
+Requires=sorter.service
+
+[Timer]
+OnUnitActiveSec=10s
+
+[Install]
+WantedBy=timers.target
