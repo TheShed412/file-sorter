@@ -6,6 +6,11 @@
 #include <functional>
 #include <algorithm>
 #include <map>
+#include "spdlog/spdlog.h"
+
+
+
+using namespace spdlog;
 
 string MediaInfoCMD::Exec() {
     string result = ExecCMD::Exec();
@@ -64,7 +69,7 @@ vector<string> MediaInfoCMD::clearWhiteSpace(vector<string> strs) {
     vector<string> clearedWhiteSpace;
 
     for(string str : strs) {
-        cout << "BEFORE WHITE SPAC: " << str << endl;
+        info("BEFORE WHITE SPACE: {}", str);
         string noWhiteSpace = clearWhiteSpace(str);
         clearedWhiteSpace.push_back(noWhiteSpace);
     }
@@ -120,7 +125,7 @@ map<string, vector<string>> MediaInfoCMD::makeTypeMap(vector<string> mediaBlocks
         blockLines.erase(blockLines.begin());
         typeMap[key] = makeValue(blockLines);
     }
-    cout << "MADE MAP" << endl;
+    info("MADE MAP");
     return typeMap;
 }
 
