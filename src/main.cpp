@@ -15,7 +15,7 @@ using namespace spdlog;
 string getInfo(const char* cmd);
 
 int main() {
-    info("ayy {}", "lmao");
+    info("Media Sorter started");
     string dateKey = "Encoded date";
     MediaInfoCMD cmd("mediainfo /home/tyler/Downloads/Project1_2019_06_22_1.mp4");
 
