@@ -1,11 +1,22 @@
 #include "SystemUtils.hpp"
 #include <cstdlib>
 #include <iostream>
+#include <ios>
+#include <fstream>
+#include <cstdio>
 #include <dirent.h>
 #include <bits/stdc++.h>
 #include <sys/stat.h> 
 #include <sys/types.h> 
 
+//TODO: needs error catching and stuff
+bool mvUtil(string srcLoc, string destLoc) {
+    ifstream in(srcLoc, std::ios::in | std::ios::binary);
+    ofstream out(destLoc, std::ios::out | std::ios::binary);
+    out << in.rdbuf();
+    remove(srcLoc.c_str());
+    return true;
+}
 
 vector<string> lsUtil(string dirName) {
     vector<string> dirents;

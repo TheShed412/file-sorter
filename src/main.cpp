@@ -33,6 +33,8 @@ int main() {
         info("File: {}", ent);
     }
 
+    mvUtil("/home/tyler/Downloads/Project1_2019_06_22_1.mp4", "/home/tyler/sort/test/test.mp4");
+
     // for(map<string,string>::iterator it = videoAtts.begin(); it != videoAtts.end(); ++it) {
     //     cout << it->first << ": " << it->second << "\n";
     // }
