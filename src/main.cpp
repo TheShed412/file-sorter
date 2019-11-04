@@ -6,6 +6,7 @@
 #include "MediaDate.hpp"
 #include "SystemUtils.hpp"
 #include "spdlog/spdlog.h"
+#include "MediaMapper.hpp"
 
 
 
@@ -23,23 +24,20 @@ int main() {
     map<string, string> videoAtts = cmd.GetGeneralInfo();
 
     MediaDate date(videoAtts.at(dateKey));
+    info("Video Record Date: {}", date.GetDateString());
     string envStr = getenvUtil("SORTER_PATH");
     bool madeDir = mkdirUtil(envStr + "/test");
     vector<string> entries = lsUtil(envStr);
     info("Environment: {}", envStr);
     info("Dir made: {}", envStr);
 
-    for(string ent : entries) {
-        info("File: {}", ent);
-    }
-
-    mvUtil("/home/tyler/Downloads/Project1_2019_06_22_1.mp4", "/home/tyler/sort/test/test.mp4");
-
     // for(map<string,string>::iterator it = videoAtts.begin(); it != videoAtts.end(); ++it) {
     //     cout << it->first << ": " << it->second << "\n";
     // }
 
     //cout << result << endl;
+
+    MediaMapper mapper;
 
     return 0;
 }

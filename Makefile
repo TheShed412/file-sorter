@@ -9,8 +9,8 @@ CC=g++
 CFLAGS= -std=c++11 -g
 MKDIR=mkdir -p
 TESTS=$(TEST)/StringUtilsTest.cpp $(SRC)/StringUtils.cpp
-OBJS=$(OBJ)/ExecCMD.o $(OBJ)/MediaDate.o
-SRCS=$(SRC)/main.cpp $(SRC)/ExecCMD.cpp $(SRC)/MediaInfoCMD.cpp $(SRC)/MediaDate.cpp $(SRC)/StringUtils.cpp $(SRC)/SystemUtils.cpp
+OBJS=$(OBJ)/ExecCMD.o $(OBJ)/MediaDate.o 
+SRCS=$(SRC)/main.cpp $(SRC)/ExecCMD.cpp $(SRC)/MediaInfoCMD.cpp $(SRC)/MediaDate.cpp $(SRC)/StringUtils.cpp $(SRC)/SystemUtils.cpp $(SRC)/MediaMapper.cpp
 
 $(OBJ)/%.o: $(SRC)/%.cpp
 	$(CC) $(INC) $(CFLAGS) -c -o $@ $<
