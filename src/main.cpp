@@ -31,13 +31,13 @@ int main() {
     info("Environment: {}", envStr);
     info("Dir made: {}", envStr);
 
+    MediaMapper mapper;
+
     // for(map<string,string>::iterator it = videoAtts.begin(); it != videoAtts.end(); ++it) {
     //     cout << it->first << ": " << it->second << "\n";
     // }
 
     //cout << result << endl;
-
-    MediaMapper mapper;
 
     return 0;
 }

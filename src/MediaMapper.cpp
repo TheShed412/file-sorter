@@ -2,6 +2,8 @@
 
 using namespace std;
 
-void MediaMapper::map(string key, string value){
-    return;
+map<string, string> MediaMapper::doMapping(string key, string value){
+    map<string, string> tmp;
+    tmp["1"] = "1";
+    return tmp;
 }
