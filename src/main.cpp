@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <cstdio>
+#include <boost/array.hpp>
 
 #include "MediaInfoCMD.hpp"
 #include "MediaDate.hpp"
@@ -32,6 +33,8 @@ int main() {
     info("Dir made: {}", envStr);
 
     MediaMapper mapper;
+
+    boost::array<int, 4> arr;
 
     // for(map<string,string>::iterator it = videoAtts.begin(); it != videoAtts.end(); ++it) {
     //     cout << it->first << ": " << it->second << "\n";

@@ -9,7 +9,7 @@ MediaDate::MediaDate(string dateString) {
     vector<string> dateAndTimeStrs = splitOnDelimeter(dateString, " ");
     vector<string> dateValues = splitOnDelimeter(dateAndTimeStrs.at(1), "-");
     vector<string> timeValues = splitOnDelimeter(dateAndTimeStrs.at(2), ":");
-    this->dateString = dateValues.at(0) + "_" + dateValues.at(1) + "_" + dateValues.at(2) + "_";
+    this->dateString = dateValues.at(0) + "_" + dateValues.at(1) + "_" + dateValues.at(2);
 
     vector<int> dateParts;
     for (string datePartStr : dateValues) {
