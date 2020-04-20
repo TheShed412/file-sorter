@@ -2,8 +2,7 @@
 
 using namespace std;
 
-map<string, string> MediaMapper::doMapping(string key, string value){
-    map<string, string> tmp;
-    tmp["1"] = "1";
+map<MediaDate, string> MediaMapper::doMapping(string key, string value){
+    map<MediaDate, string> tmp;
     return tmp;
 }

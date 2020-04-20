@@ -5,15 +5,16 @@
 #include <map>
 
 #include "Mapper.hpp"
+#include "MediaDate.hpp"
 
 using namespace std;
 
 /**
  * 
 */
-class MediaMapper : public Mapper<string, string, string, string>{
+class MediaMapper : public Mapper<string, string, MediaDate, string>{
     public:
-        map<string, string> doMapping(string key, string value) override;
+        map<MediaDate, string> doMapping(string key, string value) override;
 };
 
 #endif
