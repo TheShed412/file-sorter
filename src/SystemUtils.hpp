@@ -6,7 +6,7 @@
 
 using namespace std;
 
-bool mkdirUtil(string);
+int mkdirUtil(string);
 bool mvUtil(string, string);
 string getenvUtil(string);
 vector<string> lsUtil(string);

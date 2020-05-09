@@ -17,6 +17,9 @@ bool mvUtil(string srcLoc, string destLoc) {
         out << in.rdbuf();
     } else {
         spdlog::error("Failed onpening files");
+        spdlog::error("Source: {}", srcLoc);
+        spdlog::error("Dest: {}", destLoc);
+
         return false;
     }
 
@@ -77,14 +80,10 @@ vector<string> getFilesOfType(string dirName, string extension) {
     return files;
 }
 
-bool mkdirUtil(string dirName) {
+int mkdirUtil(string dirName) {
     const char* dirNameC = dirName.c_str();
-
-    if (mkdir(dirNameC, 0777) == -1) {
-        return false;
-    }
-
-    return true;
+    int dirRet = mkdir(dirNameC, 0777);
+    return dirRet;
 }
 
 string getenvUtil(string envVarName) {
