@@ -16,8 +16,7 @@ using namespace spdlog;
 
 string getInfo(const char* cmd);
 
-// TODO: Need to do the check for if there is no encoded date
-
+// mapper maps MediaDates to file paths
 vector<std::pair<MediaDate, string>> runMap() {
     string dateKey = "Encoded date";
     vector<std::pair<MediaDate, string>> mapped;
@@ -31,7 +30,7 @@ vector<std::pair<MediaDate, string>> runMap() {
         info("Processing: {}", videoFile);
         cmd.Exec();
         map<string, string> vidAtt = cmd.GetGeneralInfo();
-        MediaDate date(vidAtt.at(dateKey));
+        MediaDate date(vidAtt.at(dateKey));// TODO: Need to do the check for if there is no encoded date
         info("Date: {}", date.GetDateString());
         std::pair<MediaDate, string> dateFile(date, videoFile);
         mapped.push_back(dateFile);
@@ -40,7 +39,8 @@ vector<std::pair<MediaDate, string>> runMap() {
     return mapped;
 }
 
-// TODO: Need to add operator to MediaDate
+// TODO: Need to add operator to MediaDate, also this is actually the reducer lol
+// Combiner combines all files with specific dates in to a list, and keeps each one in a map
 map<string, vector<string>> combiner(vector<std::pair<MediaDate, string>> dateFileList) {
     map<string, vector<string>>  dateFilesMap;
     string currDate;
@@ -65,6 +65,7 @@ map<string, vector<string>> combiner(vector<std::pair<MediaDate, string>> dateFi
     return dateFilesMap;
 }
 
+// Reducer actually makes the folders and moves the files
 void reducer(map<string, vector<string>> dateFilesMap) {
     string newDir;
     string dirPath;
